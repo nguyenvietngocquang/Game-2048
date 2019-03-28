@@ -11,10 +11,7 @@ public class Run {
 		JFrame f = new JFrame();
 		Game2048 game = new Game2048();
 		f.setTitle("Game 2048");
-		f.setBounds(100, 100, 800, 500);
-		
-		f.add(f, game);
-		
+		f.setBounds(100, 100, 800, 500);		
 		f.setVisible(true);
 	}
 	
