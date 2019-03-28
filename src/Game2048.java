@@ -1,51 +1,21 @@
 
-import javax.swing.*;
-import java.awt.*;
-import java.text.*;
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 public class Game2048 {
-	static Scanner sc = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 	static int score = 0;
 	static int bestScore = 0;
 	static int board[][] = new int[4][4];
-	JTable table = new JTable();
-	static Random rd = new Random();
+	Random rd = new Random();
 
-	public static void main(String[] args) {
-		start();
-		print();
-		int c=0;
-		do {
-			c = sc.nextInt();
-			sc.nextLine();
-			switch(c) {
-			case 2: {
-				moveDown();
-				print();
-				break;
-			}
-			case 4: {
-				moveLeft();
-				print();
-				break;
-			}
-			case 6: {
-				moveRight();
-				print();
-				break;
-			}
-			case 8: {
-				moveUp();
-				print();
-				break;
-			}
-			}
-		} while (c!=0);
+	Game2048() {
+		this.start();
 	}
 	
 	//Start game with 3 boxes
-	static void start() {
+	void start() {
 		score = 0;
 		random();
 		random();
@@ -53,7 +23,7 @@ public class Game2048 {
 	}
 	
 	//Random empty box with value 2 or 4
-	static void random() {
+	void random() {
 		int x, y;
 		do {
 			x = rd.nextInt(4);
@@ -66,39 +36,27 @@ public class Game2048 {
 	}
 	
 	//Check this box is empty 
-	static boolean checkZero(int x, int y) {
+	boolean checkZero(int x, int y) {
 		if (board[x][y] == 0)
 				return true;
 		else return false;
 	}
 	
-	static void overGame() {
-		System.out.println("Over game");
-		System.exit(0);
+	void overGame() {
+		JOptionPane.showMessageDialog(null, "Score: " + score,
+				"Game Over", JOptionPane.WARNING_MESSAGE);
 	}
 	
 	//Check can move
-	static void checkMove() {
+	void checkMove() {
 		if ((checkLeft()==false) && (checkRight()==false)
 				&& (checkUp()==false) && (checkDown()==false)) {
 			overGame();
 		}
 	}
 	
-	public static void print() {
-		for (int i=0; i<4; i++) {
-			for (int j=0; j<4; j++) {
-				System.out.print(board[i][j] + "\t");
-			}
-			System.out.println();
-		}
-		System.out.println("Score: " + score);
-		System.out.println("Best: " + bestScore);
-		System.out.println();
-	}
-	
 	//Move left
-	static void moveLeft() {
+	void moveLeft() {
 		if (checkLeft() == true) {
 			for (int i=0; i<4; i++) {
 				int k = 0;
@@ -146,7 +104,7 @@ public class Game2048 {
 		checkMove();
 	}
 	//Check can move left
-	static boolean checkLeft() {
+	boolean checkLeft() {
 		if (combineLeft() == true) {
 			return true;
 		}
@@ -163,7 +121,7 @@ public class Game2048 {
 		return false;
 	}
 	//Check can combine left
-	static boolean combineLeft() {
+	boolean combineLeft() {
 		for (int i=0; i<4; i++) {
 			for (int j=0; j<3; j++) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i][j+1])) {
@@ -175,7 +133,7 @@ public class Game2048 {
 	}
 	
 	//Move right
-	static void moveRight() {
+	void moveRight() {
 		if (checkRight()==true) {
 			for (int i=0; i<4; i++) {
 				int k = 3;
@@ -223,7 +181,7 @@ public class Game2048 {
 		checkMove();
 	}
 	//Check can move right
-	static boolean checkRight() {
+	boolean checkRight() {
 		if (combineRight() == true) {
 			return true;
 		}
@@ -240,7 +198,7 @@ public class Game2048 {
 		return false;
 	}
 	//Check can combine right
-	static boolean combineRight() {
+	boolean combineRight() {
 		for (int i=0; i<4; i++) {
 			for (int j=3; j>0; j--) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i][j-1])) {
@@ -252,7 +210,7 @@ public class Game2048 {
 	}
 	
 	//Move up
-	static void moveUp() {
+	void moveUp() {
 		if (checkUp() == true) {
 			for (int j=0; j<4; j++) {
 				int k = 0;
@@ -300,7 +258,7 @@ public class Game2048 {
 		checkMove();
 	}
 	//Check can move up
-	static boolean checkUp() {
+	boolean checkUp() {
 		if (combineUp() == true) {
 			return true;
 		}
@@ -317,7 +275,7 @@ public class Game2048 {
 		return false;
 	}
 	//Check can combine up
-	static boolean combineUp() {
+	boolean combineUp() {
 		for (int j=0; j<4; j++) {
 			for (int i=0; i<3; i++) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i+1][j])) {
@@ -329,7 +287,7 @@ public class Game2048 {
 	}
 	
 	//Move down
-	static void moveDown() {
+	void moveDown() {
 		if (checkDown() == true) {
 			for (int j=0; j<4; j++) {
 				int k = 3;
@@ -377,7 +335,7 @@ public class Game2048 {
 		checkMove();
 	}
 	//Check can move down
-	static boolean checkDown() {
+	boolean checkDown() {
 		if (combineDown() == true) {
 			return true;
 		}
@@ -394,7 +352,7 @@ public class Game2048 {
 		return false;
 	}
 	//Check can combine down
-	static boolean combineDown() {
+	boolean combineDown() {
 		for (int j=0; j<4; j++) {
 			for (int i=3; i>0; i--) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i-1][j])) {
@@ -405,7 +363,7 @@ public class Game2048 {
 		return false;
 	}
 	
-	public static int[][] getBoard() {
+	public int[][] getBoard() {
 		return board;
 	}
 }
