@@ -3,14 +3,14 @@ import java.util.*;
 
 import javax.swing.JOptionPane;
 
-public class Game2048 {
+public class Game {
 	Scanner sc = new Scanner(System.in);
-	static int score = 0;
+	int score = 0;
 	static int bestScore = 0;
-	static int board[][] = new int[4][4];
+	int board[][] = new int[4][4];
 	Random rd = new Random();
 
-	Game2048() {
+	Game() {
 		this.start();
 	}
 	
