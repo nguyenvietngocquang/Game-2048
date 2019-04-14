@@ -12,10 +12,12 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
  
-public class App implements Initializable {
+public class Control implements Initializable {
+	
+	private Game game;
 	
 	@FXML
-	private Label score, bestScore;
+	private Label scorelb, bestlb;
 	
 	@FXML
 	private Label label00, label01, label02, label03,
@@ -25,11 +27,32 @@ public class App implements Initializable {
 	
 	public void newGame() {
 		Game game = new Game();
-		this.display(game);
+		this.game = game;
+		this.display();
 	}
 	
 	public void exit() {
 		System.exit(0);
+	}
+	
+	public void left() {
+		this.game.moveLeft();
+		this.display();
+	}
+	
+	public void right() {
+		this.game.moveRight();
+		this.display();
+	}
+	
+	public void up() {
+		this.game.moveUp();
+		this.display();
+	}
+	
+	public void down() {
+		this.game.moveDown();
+		this.display();
 	}
 	
 	public void undo() {
@@ -42,25 +65,25 @@ public class App implements Initializable {
 				"About", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	public void display(Game game) {
-		score.setText("SCORE\n" + game.score);
-		bestScore.setText("BEST\n" + Game.bestScore);
-		set(label00, 0, 0, game);
-		set(label01, 0, 1, game);
-		set(label02, 0, 2, game);
-		set(label03, 0, 3, game);
-		set(label10, 1, 0, game);
-		set(label11, 1, 1, game);
-		set(label12, 1, 2, game);
-		set(label13, 1, 3, game);
-		set(label20, 2, 0, game);
-		set(label21, 2, 1, game);
-		set(label22, 2, 2, game);
-		set(label23, 2, 3, game);
-		set(label30, 3, 0, game);
-		set(label31, 3, 1, game);
-		set(label32, 3, 2, game);
-		set(label33, 3, 3, game);
+	public void display() {
+		scorelb.setText("SCORE\n" + this.game.score);
+		bestlb.setText("BEST\n" + Game.bestScore);
+		set(label00, 0, 0);
+		set(label01, 0, 1);
+		set(label02, 0, 2);
+		set(label03, 0, 3);
+		set(label10, 1, 0);
+		set(label11, 1, 1);
+		set(label12, 1, 2);
+		set(label13, 1, 3);
+		set(label20, 2, 0);
+		set(label21, 2, 1);
+		set(label22, 2, 2);
+		set(label23, 2, 3);
+		set(label30, 3, 0);
+		set(label31, 3, 1);
+		set(label32, 3, 2);
+		set(label33, 3, 3);
 	}
 	
 	@Override
@@ -68,8 +91,8 @@ public class App implements Initializable {
 		// TODO (don't really need to do anything here).
 	}
 	
-	public void set(Label label, int i, int j, Game game) {
-		int value = game.board[i][j];
+	public void set(Label label, int i, int j) {
+		int value = this.game.board[i][j];
 		label.setText(string(value));
 		switch(value) {
 		case 0: {

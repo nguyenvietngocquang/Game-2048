@@ -1,10 +1,8 @@
 
 import java.util.*;
-
 import javax.swing.JOptionPane;
 
 public class Game {
-	Scanner sc = new Scanner(System.in);
 	int score = 0;
 	static int bestScore = 0;
 	int board[][] = new int[4][4];
