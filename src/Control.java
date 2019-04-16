@@ -38,25 +38,49 @@ public class Control implements Initializable {
 	public void left() {
 		this.game.moveLeft();
 		this.display();
+		this.checkMove();
 	}
 	
 	public void right() {
 		this.game.moveRight();
 		this.display();
+		this.checkMove();
 	}
 	
 	public void up() {
 		this.game.moveUp();
 		this.display();
+		this.checkMove();
 	}
 	
 	public void down() {
 		this.game.moveDown();
 		this.display();
+		this.checkMove();
 	}
 	
 	public void undo() {
-		
+		if (this.game.checkMove() == 0) {
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++) {
+					this.game.board[i][j] = this.game.undo[i][j];
+				}
+			this.game.score = this.game.undoScore;
+			Game.bestScore = Game.undoBest;
+			this.display();
+		}
+	}
+	
+	void checkMove() {
+		if (this.game.checkMove() == 1) {
+			JOptionPane.showMessageDialog(null, "Score: " + this.game.score,
+					"Game Over", JOptionPane.WARNING_MESSAGE);
+			int option = JOptionPane.showConfirmDialog(null, 
+					"Do you want to play new game?", "", JOptionPane.YES_NO_OPTION);
+			if (option == JOptionPane.YES_OPTION) {
+				this.newGame();
+			}
+		}
 	}
 	
 	public void about() {

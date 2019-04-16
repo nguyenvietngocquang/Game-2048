@@ -1,11 +1,13 @@
 
 import java.util.*;
-import javax.swing.JOptionPane;
 
 public class Game {
 	int score = 0;
+	int undoScore = 0;
 	static int bestScore = 0;
+	static int undoBest = 0;
 	int board[][] = new int[4][4];
+	int undo[][] = new int[4][4];
 	Random rd = new Random();
 
 	Game() {
@@ -40,22 +42,23 @@ public class Game {
 		else return false;
 	}
 	
-	void overGame() {
-		JOptionPane.showMessageDialog(null, "Score: " + score,
-				"Game Over", JOptionPane.WARNING_MESSAGE);
-	}
-	
 	//Check can move
-	void checkMove() {
+	int checkMove() {
 		if ((checkLeft()==false) && (checkRight()==false)
 				&& (checkUp()==false) && (checkDown()==false)) {
-			overGame();
-		}
+			return 1;
+		} else return 0;
 	}
 	
 	//Move left
 	void moveLeft() {
 		if (checkLeft() == true) {
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++) {
+					undo[i][j] = board[i][j];
+				}
+			undoScore = score;
+			undoBest = bestScore;
 			for (int i=0; i<4; i++) {
 				int k = 0;
 				for (int j=0; j<4; j++) {
@@ -99,7 +102,6 @@ public class Game {
 			}
 			random();
 		}
-		checkMove();
 	}
 	//Check can move left
 	boolean checkLeft() {
@@ -133,6 +135,12 @@ public class Game {
 	//Move right
 	void moveRight() {
 		if (checkRight()==true) {
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++) {
+					undo[i][j] = board[i][j];
+				}
+			undoScore = score;
+			undoBest = bestScore;
 			for (int i=0; i<4; i++) {
 				int k = 3;
 				for (int j=3; j>=0; j--) {
@@ -176,7 +184,6 @@ public class Game {
 			}
 			random();
 		}
-		checkMove();
 	}
 	//Check can move right
 	boolean checkRight() {
@@ -210,6 +217,12 @@ public class Game {
 	//Move up
 	void moveUp() {
 		if (checkUp() == true) {
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++) {
+					undo[i][j] = board[i][j];
+				}
+			undoScore = score;
+			undoBest = bestScore;
 			for (int j=0; j<4; j++) {
 				int k = 0;
 				for (int i=0; i<4; i++) {
@@ -253,7 +266,6 @@ public class Game {
 			}
 			random();
 		}
-		checkMove();
 	}
 	//Check can move up
 	boolean checkUp() {
@@ -287,6 +299,12 @@ public class Game {
 	//Move down
 	void moveDown() {
 		if (checkDown() == true) {
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++) {
+					undo[i][j] = board[i][j];
+				}
+			undoScore = score;
+			undoBest = bestScore;
 			for (int j=0; j<4; j++) {
 				int k = 3;
 				for (int i=3; i>=0; i--) {
@@ -330,7 +348,6 @@ public class Game {
 			}
 			random();
 		}
-		checkMove();
 	}
 	//Check can move down
 	boolean checkDown() {
@@ -359,9 +376,5 @@ public class Game {
 			}
 		}
 		return false;
-	}
-	
-	public int[][] getBoard() {
-		return board;
 	}
 }

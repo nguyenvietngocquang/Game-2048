@@ -16,7 +16,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-        	Control ctrl = new Control();
             //Read file fxml and draw interface.
             Parent root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
             primaryStage.setTitle("Game 2048");
@@ -24,12 +23,16 @@ public class Main extends Application {
             
             KeyCombination newgame = new KeyCodeCombination(KeyCode.N, KeyCodeCombination.CONTROL_ANY);
             KeyCombination exit = new KeyCodeCombination(KeyCode.X, KeyCodeCombination.CONTROL_ANY);
+            Control ctrl = new Control();
             
             root.setOnKeyPressed(new EventHandler<KeyEvent>() {
                 @Override
                 public void handle(KeyEvent event) {
                 	if (exit.match(event)) ctrl.exit();
-                	if (newgame.match(event)) ctrl.newGame();
+                	if (newgame.match(event)) { 
+                		ctrl.newGame();
+                		
+                	}
                     switch (event.getCode()) { 
                         case UP:    ctrl.up(); break;
                         case DOWN:  ctrl.down(); break;

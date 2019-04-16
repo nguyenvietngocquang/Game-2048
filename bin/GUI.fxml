@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="pane" prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="App">
+<AnchorPane fx:id="pane" prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control">
    <children>
       <MenuBar>
         <menus>
@@ -117,5 +117,9 @@
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
+      <Button layoutX="48.0" layoutY="105.0" mnemonicParsing="false" onAction="#left" text="Left" />
+      <Button layoutX="99.0" layoutY="65.0" mnemonicParsing="false" onAction="#up" text="Up" />
+      <Button layoutX="89.0" layoutY="150.0" mnemonicParsing="false" onAction="#down" text="Down" />
+      <Button layoutX="141.0" layoutY="105.0" mnemonicParsing="false" onAction="#right" text="Right" />
    </children>
 </AnchorPane>
