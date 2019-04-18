@@ -14,10 +14,19 @@ import javafx.scene.paint.Color;
  
 public class Control implements Initializable {
 	
+	protected Main main;
 	private Game game;
 	
+	protected void setMain(Main main) {
+		this.main = main;
+	}
+	
+	public Game getGame() {
+		return game;
+	}
+
 	@FXML
-	private Label scorelb, bestlb;
+	private Label scorelb = new Label(), bestlb = new Label();
 	
 	@FXML
 	private Label label00, label01, label02, label03,
@@ -28,7 +37,7 @@ public class Control implements Initializable {
 	public void newGame() {
 		Game game = new Game();
 		this.game = game;
-		this.display();
+		display();
 	}
 	
 	public void exit() {
@@ -36,49 +45,49 @@ public class Control implements Initializable {
 	}
 	
 	public void left() {
-		this.game.moveLeft();
-		this.display();
-		this.checkMove();
+		game.moveLeft();
+		display();
+		checkMove();
 	}
 	
 	public void right() {
-		this.game.moveRight();
-		this.display();
-		this.checkMove();
+		game.moveRight();
+		display();
+		checkMove();
 	}
 	
 	public void up() {
-		this.game.moveUp();
-		this.display();
-		this.checkMove();
+		game.moveUp();
+		display();
+		checkMove();
 	}
 	
 	public void down() {
-		this.game.moveDown();
-		this.display();
-		this.checkMove();
+		game.moveDown();
+		display();
+		checkMove();
 	}
 	
 	public void undo() {
-		if (this.game.checkMove() == 0) {
+		if (game.checkMove() == 0) {
 			for (int i=0; i<4; i++)
 				for (int j=0; j<4; j++) {
-					this.game.board[i][j] = this.game.undo[i][j];
+					game.board[i][j] = game.undo[i][j];
 				}
-			this.game.score = this.game.undoScore;
+			game.score = game.undoScore;
 			Game.bestScore = Game.undoBest;
-			this.display();
+			display();
 		}
 	}
 	
-	void checkMove() {
-		if (this.game.checkMove() == 1) {
-			JOptionPane.showMessageDialog(null, "Score: " + this.game.score,
+	private void checkMove() {
+		if (game.checkMove() == 1) {
+			JOptionPane.showMessageDialog(null, "Score: " + game.score,
 					"Game Over", JOptionPane.WARNING_MESSAGE);
 			int option = JOptionPane.showConfirmDialog(null, 
 					"Do you want to play new game?", "", JOptionPane.YES_NO_OPTION);
 			if (option == JOptionPane.YES_OPTION) {
-				this.newGame();
+				newGame();
 			}
 		}
 	}
@@ -89,8 +98,9 @@ public class Control implements Initializable {
 				"About", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	public void display() {
-		scorelb.setText("SCORE\n" + this.game.score);
+	@FXML
+	private void display() {
+		scorelb.setText("SCORE\n" + game.score);
 		bestlb.setText("BEST\n" + Game.bestScore);
 		set(label00, 0, 0);
 		set(label01, 0, 1);
@@ -115,8 +125,8 @@ public class Control implements Initializable {
 		// TODO (don't really need to do anything here).
 	}
 	
-	public void set(Label label, int i, int j) {
-		int value = this.game.board[i][j];
+	private void set(Label label, int i, int j) {
+		int value = game.board[i][j];
 		label.setText(string(value));
 		switch(value) {
 		case 0: {
@@ -160,16 +170,16 @@ public class Control implements Initializable {
 		}
 		case 256: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#F0E68C"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF4500"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
 			break;
 		}
 		case 512: {
-			label.setTextFill(Color.web("#FFFFFF"));
+			label.setTextFill(Color.web("#000000"));
 			label.setBackground(new Background(new BackgroundFill(Color.web("#FFFF00"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
 			break;
 		}
 		case 1024: {
-			label.setTextFill(Color.web("#FFFFFF"));
+			label.setTextFill(Color.web("#000000"));
 			label.setBackground(new Background(new BackgroundFill(Color.web("#FFD700"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
 			break;
 		}
@@ -178,10 +188,35 @@ public class Control implements Initializable {
 			label.setBackground(new Background(new BackgroundFill(Color.web("#DAA520"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
 			break;
 		}
+		case 4096: {
+			label.setTextFill(Color.web("#FFFFFF"));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			break;
+		}
+		case 8192: {
+			label.setTextFill(Color.web("#FFFFFF"));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			break;
+		}
+		case 16384: {
+			label.setTextFill(Color.web("#FFFFFF"));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			break;
+		}
+		case 32768: {
+			label.setTextFill(Color.web("#FFFFFF"));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			break;
+		}
+		case 65536: {
+			label.setTextFill(Color.web("#FFFFFF"));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			break;
+		}
 		}
 	}
 	
-	public String string(int value) {
+	private String string(int value) {
 		if (value != 0)
 			return Integer.toString(value);
 		else

@@ -11,11 +11,11 @@ public class Game {
 	Random rd = new Random();
 
 	Game() {
-		this.start();
+		start();
 	}
 	
 	//Start game with 3 boxes
-	void start() {
+	private void start() {
 		score = 0;
 		random();
 		random();
@@ -23,7 +23,7 @@ public class Game {
 	}
 	
 	//Random empty box with value 2 or 4
-	void random() {
+	private void random() {
 		int x, y;
 		do {
 			x = rd.nextInt(4);
@@ -36,14 +36,14 @@ public class Game {
 	}
 	
 	//Check this box is empty 
-	boolean checkZero(int x, int y) {
+	private boolean checkZero(int x, int y) {
 		if (board[x][y] == 0)
 				return true;
 		else return false;
 	}
 	
 	//Check can move
-	int checkMove() {
+	protected int checkMove() {
 		if ((checkLeft()==false) && (checkRight()==false)
 				&& (checkUp()==false) && (checkDown()==false)) {
 			return 1;
@@ -51,7 +51,7 @@ public class Game {
 	}
 	
 	//Move left
-	void moveLeft() {
+	protected void moveLeft() {
 		if (checkLeft() == true) {
 			for (int i=0; i<4; i++)
 				for (int j=0; j<4; j++) {
@@ -104,7 +104,7 @@ public class Game {
 		}
 	}
 	//Check can move left
-	boolean checkLeft() {
+	private boolean checkLeft() {
 		if (combineLeft() == true) {
 			return true;
 		}
@@ -121,7 +121,7 @@ public class Game {
 		return false;
 	}
 	//Check can combine left
-	boolean combineLeft() {
+	private boolean combineLeft() {
 		for (int i=0; i<4; i++) {
 			for (int j=0; j<3; j++) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i][j+1])) {
@@ -133,7 +133,7 @@ public class Game {
 	}
 	
 	//Move right
-	void moveRight() {
+	protected void moveRight() {
 		if (checkRight()==true) {
 			for (int i=0; i<4; i++)
 				for (int j=0; j<4; j++) {
@@ -186,7 +186,7 @@ public class Game {
 		}
 	}
 	//Check can move right
-	boolean checkRight() {
+	private boolean checkRight() {
 		if (combineRight() == true) {
 			return true;
 		}
@@ -203,7 +203,7 @@ public class Game {
 		return false;
 	}
 	//Check can combine right
-	boolean combineRight() {
+	private boolean combineRight() {
 		for (int i=0; i<4; i++) {
 			for (int j=3; j>0; j--) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i][j-1])) {
@@ -215,7 +215,7 @@ public class Game {
 	}
 	
 	//Move up
-	void moveUp() {
+	protected void moveUp() {
 		if (checkUp() == true) {
 			for (int i=0; i<4; i++)
 				for (int j=0; j<4; j++) {
@@ -268,7 +268,7 @@ public class Game {
 		}
 	}
 	//Check can move up
-	boolean checkUp() {
+	private boolean checkUp() {
 		if (combineUp() == true) {
 			return true;
 		}
@@ -285,7 +285,7 @@ public class Game {
 		return false;
 	}
 	//Check can combine up
-	boolean combineUp() {
+	private boolean combineUp() {
 		for (int j=0; j<4; j++) {
 			for (int i=0; i<3; i++) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i+1][j])) {
@@ -297,7 +297,7 @@ public class Game {
 	}
 	
 	//Move down
-	void moveDown() {
+	protected void moveDown() {
 		if (checkDown() == true) {
 			for (int i=0; i<4; i++)
 				for (int j=0; j<4; j++) {
@@ -350,7 +350,7 @@ public class Game {
 		}
 	}
 	//Check can move down
-	boolean checkDown() {
+	private boolean checkDown() {
 		if (combineDown() == true) {
 			return true;
 		}
@@ -367,7 +367,7 @@ public class Game {
 		return false;
 	}
 	//Check can combine down
-	boolean combineDown() {
+	private boolean combineDown() {
 		for (int j=0; j<4; j++) {
 			for (int i=3; i>0; i--) {
 				if ((board[i][j]!=0) && (board[i][j] == board[i-1][j])) {

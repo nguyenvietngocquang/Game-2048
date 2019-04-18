@@ -9,19 +9,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="pane" prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control">
+<AnchorPane prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control">
    <children>
       <MenuBar>
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="newgame" mnemonicParsing="false" onAction="#newGame" text="New Game" />
-                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exit" text="Close" />
+              <MenuItem fx:id="newgame" mnemonicParsing="false" onAction="#newGame" text="New Game     Ctrl+N" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exit" text="Exit                 Ctrl+X" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem fx:id="undo" mnemonicParsing="false" onAction="#undo" text="Undo" />
+              <MenuItem fx:id="undo" mnemonicParsing="false" onAction="#undo" text="Undo     Ctrl+Z" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -117,9 +117,5 @@
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="48.0" layoutY="105.0" mnemonicParsing="false" onAction="#left" text="Left" />
-      <Button layoutX="99.0" layoutY="65.0" mnemonicParsing="false" onAction="#up" text="Up" />
-      <Button layoutX="89.0" layoutY="150.0" mnemonicParsing="false" onAction="#down" text="Down" />
-      <Button layoutX="141.0" layoutY="105.0" mnemonicParsing="false" onAction="#right" text="Right" />
    </children>
 </AnchorPane>
