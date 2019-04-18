@@ -34,10 +34,10 @@ public class Main extends Application {
             root.setOnKeyPressed(new EventHandler<KeyEvent>() {
                 @Override
                 public void handle(KeyEvent event) {
-                	if (exit.match(event)) control.exit();
                 	if (newgame.match(event)) control.newGame();
+                	if (undo.match(event)) control.undo();
+                   	if (exit.match(event)) control.exit();
                 	if (control.getGame() != null) {
-                		if (undo.match(event)) control.undo();
                 		switch (event.getCode()) { 
                         case UP:    control.up(); break;
                         case DOWN:  control.down(); break;

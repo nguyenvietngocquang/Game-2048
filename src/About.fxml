@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="455.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AboutControl">
+   <children>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="130.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="20.0">
+         <image>
+            <Image url="@../resource/2048.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="20.0" prefHeight="80.0" prefWidth="220.0" text="Game 2048" textAlignment="CENTER" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Jokerman" size="36.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="120.0" prefHeight="40.0" prefWidth="350.0" text="Nguyễn Viết Ngọc Quang" textAlignment="CENTER" textFill="#e10808" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Calibri Italic" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0">
+         <image>
+            <Image url="@../resource/gmail.png" />
+         </image>
+      </ImageView>
+      <Label contentDisplay="CENTER" layoutX="70.0" layoutY="180.0" prefHeight="40.0" prefWidth="100.0" text="Gmail" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="180.0" layoutY="180.0" prefHeight="40.0" prefWidth="390.0" text="nguyenvietngocquang@gmail.com" textAlignment="CENTER" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font name="Monospaced Regular" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="27.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="235.0">
+         <image>
+            <Image url="@../resource/hust.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="290.0">
+         <image>
+            <Image url="@../resource/facebook.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="345.0">
+         <image>
+            <Image url="@../resource/github.png" />
+         </image>
+      </ImageView>
+      <Label contentDisplay="CENTER" layoutX="70.0" layoutY="235.0" prefHeight="40.0" prefWidth="100.0" text="University" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="235.0">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="70.0" layoutY="290.0" prefHeight="40.0" prefWidth="100.0" text="Facebook" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="290.0">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="70.0" layoutY="345.0" prefHeight="40.0" prefWidth="100.0" text="GitHub" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="345.0">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="180.0" layoutY="235.0" prefHeight="40.0" prefWidth="380.0" text="Hanoi University of Science and Technology" textAlignment="CENTER" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="235.0">
+         <font>
+            <Font name="Monospaced Regular" size="15.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="github" contentDisplay="CENTER" layoutX="175.0" layoutY="345.0" onAction="#goGitHub" prefHeight="40.0" prefWidth="380.0" text="nguyenvietngocquang" textAlignment="CENTER" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="345.0">
+         <font>
+            <Font name="Monospaced Regular" size="15.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="facebook" contentDisplay="CENTER" layoutX="175.0" layoutY="290.0" onAction="#goFacebook" prefHeight="40.0" prefWidth="380.0" text="nguyenvietngoc.quang" textAlignment="CENTER" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="290.0">
+         <font>
+            <Font name="Monospaced Regular" size="15.0" />
+         </font>
+      </Hyperlink>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="405.0" prefHeight="30.0" prefWidth="80.0" text="April 2019" textAlignment="CENTER" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="405.0">
+         <font>
+            <Font name="Book Antiqua Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

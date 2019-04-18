@@ -1,16 +1,23 @@
 
+import java.awt.Desktop;
+import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
  
 public class Control implements Initializable {
 	
@@ -69,14 +76,16 @@ public class Control implements Initializable {
 	}
 	
 	public void undo() {
-		if (game.checkMove() == 0) {
-			for (int i=0; i<4; i++)
-				for (int j=0; j<4; j++) {
-					game.board[i][j] = game.undo[i][j];
-				}
-			game.score = game.undoScore;
-			Game.bestScore = Game.undoBest;
-			display();
+		if (game != null) {
+			if (game.checkMove() == 0) {
+				for (int i=0; i<4; i++)
+					for (int j=0; j<4; j++) {
+						game.board[i][j] = game.undo[i][j];
+					}
+				game.score = game.undoScore;
+				Game.bestScore = Game.undoBest;
+				display();
+			}
 		}
 	}
 	
@@ -92,10 +101,35 @@ public class Control implements Initializable {
 		}
 	}
 	
-	public void about() {
-		JOptionPane.showMessageDialog(null, "Game 2048\nNguyễn Viết Ngọc Quang\nApril 2019\n"
-				+ "Facebook: https://facebook.com/nguyenvietngoc.quang\nGitHub: https://github.com/nguyenvietngocquang",
-				"About", JOptionPane.INFORMATION_MESSAGE);
+	protected void goFacebook() {
+		goLink("https://facebook.com/nguyenvietngoc.quang");
+	}
+	
+	protected void goGitHub() {
+		goLink("https://github.com/nguyenvietngocquang");
+	}
+	
+	static void goLink(String link) {
+		try {
+			Desktop.getDesktop().browse(new URI(link));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	void about() {
+		try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/About.fxml"));
+            Parent root = (Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("About");
+            stage.getIcons().add(new Image("/2048.png"));
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 	}
 	
 	@FXML
@@ -118,11 +152,6 @@ public class Control implements Initializable {
 		set(label31, 3, 1);
 		set(label32, 3, 2);
 		set(label33, 3, 3);
-	}
-	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO (don't really need to do anything here).
 	}
 	
 	private void set(Label label, int i, int j) {
@@ -221,5 +250,10 @@ public class Control implements Initializable {
 			return Integer.toString(value);
 		else
 			return "";
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
 	}
 }
