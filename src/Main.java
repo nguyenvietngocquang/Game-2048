@@ -43,6 +43,7 @@ public class Main extends Application {
                         case DOWN:  control.down(); break;
                         case LEFT:  control.left(); break;
                         case RIGHT: control.right(); break;
+						default: break;
                 		}
                 	}
                 }

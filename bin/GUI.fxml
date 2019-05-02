@@ -15,25 +15,25 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="newgame" mnemonicParsing="false" onAction="#newGame" text="New Game     Ctrl+N" />
-                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exit" text="Exit                 Ctrl+X" />
+              <MenuItem mnemonicParsing="false" onAction="#newGame" text="New Game     Ctrl+N" />
+                  <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit                 Ctrl+X" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem fx:id="undo" mnemonicParsing="false" onAction="#undo" text="Undo     Ctrl+Z" />
+              <MenuItem mnemonicParsing="false" onAction="#undo" text="Undo     Ctrl+Z" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <ImageView fx:id="image" fitHeight="150.0" fitWidth="150.0" layoutX="40.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="42.0">
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="40.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="42.0">
          <image>
-            <Image url="@../resource/2048.png" />
+            <Image url="/2048.png" />
          </image></ImageView>
       <Label fx:id="scorelb" alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="40.0" prefHeight="100.0" prefWidth="100.0" text="SCORE" textAlignment="CENTER" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="40.0">
       	 <font>
@@ -107,12 +107,12 @@
    		 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
-      <Button fx:id="newgamebtn" layoutX="230.0" layoutY="150.0" mnemonicParsing="false" onAction="#newGame" prefHeight="40.0" prefWidth="100.0" text="New Game" textAlignment="CENTER" textFill="#a60f0f" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="150.0">
+      <Button layoutX="230.0" layoutY="150.0" mnemonicParsing="false" onAction="#newGame" prefHeight="40.0" prefWidth="100.0" text="New Game" textAlignment="CENTER" textFill="#a60f0f" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="undobtn" layoutX="340.0" layoutY="150.0" mnemonicParsing="false" onAction="#undo" prefHeight="40.0" prefWidth="100.0" text="Undo" textAlignment="CENTER" textFill="#a70f0f" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="150.0">
+      <Button layoutX="340.0" layoutY="150.0" mnemonicParsing="false" onAction="#undo" prefHeight="40.0" prefWidth="100.0" text="Undo" textAlignment="CENTER" textFill="#a70f0f" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>

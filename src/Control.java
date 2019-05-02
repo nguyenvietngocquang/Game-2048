@@ -1,6 +1,4 @@
 
-import java.awt.Desktop;
-import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -98,22 +96,6 @@ public class Control implements Initializable {
 			if (option == JOptionPane.YES_OPTION) {
 				newGame();
 			}
-		}
-	}
-	
-	protected void goFacebook() {
-		goLink("https://facebook.com/nguyenvietngoc.quang");
-	}
-	
-	protected void goGitHub() {
-		goLink("https://github.com/nguyenvietngocquang");
-	}
-	
-	static void goLink(String link) {
-		try {
-			Desktop.getDesktop().browse(new URI(link));
-		} catch(Exception e) {
-			e.printStackTrace();
 		}
 	}
 	
