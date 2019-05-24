@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control">
+<AnchorPane fx:id="pane" prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control">
    <children>
-      <MenuBar>
+      <MenuBar style="-fx-background-radius: 0 5 10 5;">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -33,7 +33,7 @@
       </MenuBar>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="40.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="42.0">
          <image>
-            <Image url="/2048.png" />
+            <Image url="@../resource/2048.png" />
          </image></ImageView>
       <Label fx:id="scorelb" alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="40.0" prefHeight="100.0" prefWidth="100.0" text="SCORE" textAlignment="CENTER" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="40.0">
       	 <font>
@@ -63,11 +63,11 @@
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
-      <Label fx:id="label11" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="320.0" prefHeight="100.0" prefWidth="100.0" text="Wel" textAlignment="CENTER" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="320.0">
+      <Label fx:id="label11" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="320.0" prefHeight="100.0" prefWidth="100.0" textAlignment="CENTER" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="320.0">
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
-      <Label fx:id="label12" alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="320.0" prefHeight="100.0" prefWidth="100.0" text="come" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="320.0">
+      <Label fx:id="label12" alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="320.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="320.0">
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
@@ -75,19 +75,19 @@
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
-      <Label fx:id="label20" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" text="to" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="430.0">
+      <Label fx:id="label20" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="430.0">
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
-      <Label fx:id="label21" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" text="the" textAlignment="CENTER" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="430.0">
+      <Label fx:id="label21" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" textAlignment="CENTER" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="430.0">
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
-      <Label fx:id="label22" alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" text="2048" textAlignment="CENTER" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="430.0">
+      <Label fx:id="label22" alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" textAlignment="CENTER" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="430.0">
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
-      <Label fx:id="label23" alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" text="game" textAlignment="CENTER" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="430.0">
+      <Label fx:id="label23" alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="430.0" prefHeight="100.0" prefWidth="100.0" textAlignment="CENTER" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="430.0">
       	 <font>
             <Font name="Yu Gothic UI Semibold" size="30.0" />
          </font></Label>
@@ -111,11 +111,25 @@
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button layoutX="340.0" layoutY="150.0" mnemonicParsing="false" onAction="#undo" prefHeight="40.0" prefWidth="100.0" text="Undo" textAlignment="CENTER" textFill="#a70f0f" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
+      <AnchorPane fx:id="welcome" layoutY="210.0" prefHeight="440.0" prefWidth="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="210.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="440.0" prefWidth="450.0" text="Welcome&#10;to  the&#10;2048  game" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Jokerman" size="45.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

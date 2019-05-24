@@ -6,9 +6,15 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 
 public class AboutControl implements Initializable {
 
+	@FXML
+	private Rectangle Facebook, GitHub;
+	
 	@FXML
 	protected void goFacebook() {
 		goLink("https://facebook.com/nguyenvietngoc.quang");
@@ -29,6 +35,9 @@ public class AboutControl implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		Image facebook = new Image("/facebook.png");
+		Image github = new Image("/github.png");
+		Facebook.setFill(new ImagePattern(facebook));
+		GitHub.setFill(new ImagePattern(github));
 	}
 }

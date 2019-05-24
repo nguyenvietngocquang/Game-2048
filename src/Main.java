@@ -23,6 +23,9 @@ public class Main extends Application {
             root = (AnchorPane) loader.load();
             primaryStage.setTitle("Game 2048");
             primaryStage.getIcons().add(new Image("/2048.png"));
+            primaryStage.setMaxHeight(680);
+            primaryStage.setMaxWidth(455);
+            primaryStage.setResizable(false);
             
             // Give the controller access to the main application
             Control control = loader.getController();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -11,7 +12,7 @@
    <children>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="130.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="20.0">
          <image>
-            <Image url="/2048.png" />
+            <Image url="@../resource/2048.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="20.0" prefHeight="80.0" prefWidth="220.0" text="Game 2048" textAlignment="CENTER" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="20.0">
@@ -19,14 +20,14 @@
             <Font name="Jokerman" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="120.0" prefHeight="40.0" prefWidth="350.0" text="Nguyễn Viết Ngọc Quang" textAlignment="CENTER" textFill="#e10808" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="120.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="120.0" prefHeight="40.0" prefWidth="350.0" text="Nguyễn Viết Ngọc Quang" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="120.0">
          <font>
-            <Font name="Calibri Italic" size="30.0" />
+            <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="185.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="185.0">
          <image>
-            <Image url="/gmail.png" />
+            <Image url="@../resource/gmail.jpg" />
          </image>
       </ImageView>
       <Label contentDisplay="CENTER" layoutX="70.0" layoutY="180.0" prefHeight="40.0" prefWidth="100.0" text="Gmail" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="180.0">
@@ -39,19 +40,9 @@
             <Font name="Monospaced Regular" size="15.0" />
          </font>
       </Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="27.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="235.0">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="27.0" layoutY="235.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="235.0">
          <image>
-            <Image url="/hust.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="290.0">
-         <image>
-            <Image url="/facebook.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="345.0">
-         <image>
-            <Image url="/github.png" />
+            <Image url="@../resource/hust.png" />
          </image>
       </ImageView>
       <Label contentDisplay="CENTER" layoutX="70.0" layoutY="235.0" prefHeight="40.0" prefWidth="100.0" text="University" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="235.0">
@@ -74,12 +65,12 @@
             <Font name="Monospaced Regular" size="15.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="github" contentDisplay="CENTER" layoutX="175.0" layoutY="345.0" onAction="#goGitHub" prefHeight="40.0" prefWidth="380.0" text="nguyenvietngocquang" textAlignment="CENTER" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="345.0">
+      <Hyperlink contentDisplay="CENTER" layoutX="175.0" layoutY="345.0" onAction="#goGitHub" prefHeight="40.0" prefWidth="380.0" style="-fx-border-width: 0;" text="nguyenvietngocquang" textAlignment="CENTER" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="345.0">
          <font>
             <Font name="Monospaced Regular" size="15.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="facebook" contentDisplay="CENTER" layoutX="175.0" layoutY="290.0" onAction="#goFacebook" prefHeight="40.0" prefWidth="380.0" text="nguyenvietngoc.quang" textAlignment="CENTER" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="290.0">
+      <Hyperlink contentDisplay="CENTER" layoutX="175.0" layoutY="290.0" onAction="#goFacebook" prefHeight="40.0" prefWidth="380.0" style="-fx-border-width: 0;" text="nguyenvietngoc.quang" textAlignment="CENTER" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="290.0">
          <font>
             <Font name="Monospaced Regular" size="15.0" />
          </font>
@@ -89,5 +80,7 @@
             <Font name="Book Antiqua Bold" size="15.0" />
          </font>
       </Label>
+      <Rectangle fx:id="Facebook" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="20.0" layoutY="290.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="290.0" />
+      <Rectangle fx:id="GitHub" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="20.0" layoutY="345.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="345.0" />
    </children>
 </AnchorPane>

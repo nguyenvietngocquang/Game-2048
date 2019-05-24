@@ -1,23 +1,21 @@
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javax.swing.JOptionPane;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
  
-public class Control implements Initializable {
+public class Control {
 	
 	protected Main main;
 	private Game game;
@@ -31,6 +29,9 @@ public class Control implements Initializable {
 	}
 
 	@FXML
+	private AnchorPane pane, welcome;
+
+	@FXML
 	private Label scorelb = new Label(), bestlb = new Label();
 	
 	@FXML
@@ -40,6 +41,7 @@ public class Control implements Initializable {
 				label30, label31, label32, label33;
 	
 	public void newGame() {
+		pane.getChildren().remove(welcome);
 		Game game = new Game();
 		this.game = game;
 		display();
@@ -107,6 +109,9 @@ public class Control implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("About");
             stage.getIcons().add(new Image("/2048.png"));
+            stage.setMaxHeight(475);
+            stage.setMaxWidth(585);
+            stage.setResizable(false);
             stage.setScene(new Scene(root));
             stage.show();
         } catch(Exception e) {
@@ -141,87 +146,87 @@ public class Control implements Initializable {
 		label.setText(string(value));
 		switch(value) {
 		case 0: {
-			label.setBackground(new Background(new BackgroundFill(Color.web("#A9A9A9"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#A9A9A9"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 2: {
 			label.setTextFill(Color.web("#000000"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#F5DEB3"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#F5DEB3"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 4: {
 			label.setTextFill(Color.web("#000000"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FFB6C1"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FFB6C1"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 8: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF8C00"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF8C00"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 16: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#F4A460"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#F4A460"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 32: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#F08080"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#F08080"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 64: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#CD5C5C"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#CD5C5C"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 128: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF7F50"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF7F50"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 256: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF4500"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF4500"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 512: {
 			label.setTextFill(Color.web("#000000"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FFFF00"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FFFF00"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 1024: {
 			label.setTextFill(Color.web("#000000"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FFD700"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FFD700"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 2048: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#DAA520"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#DAA520"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 4096: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 8192: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 16384: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 32768: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		case 65536: {
 			label.setTextFill(Color.web("#FFFFFF"));
-			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY)));
+			label.setBackground(new Background(new BackgroundFill(Color.web("#FF0000"), new CornerRadii(5), Insets.EMPTY)));
 			break;
 		}
 		}
@@ -232,10 +237,5 @@ public class Control implements Initializable {
 			return Integer.toString(value);
 		else
 			return "";
-	}
-	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		
 	}
 }
